@@ -3,7 +3,7 @@ mongoose.Promise = require('bluebird')
 export const connectDatabase = (): void => {
   const mongodbConnectUrl = process.env.ENV_NAME === 'dev'
     ? `mongodb://${process.env.DB_URL_DEV}/${process.env.DB_NAME}`
-    : `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_URL_PROD}/${process.env.DB_NAME}`
+    : `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_URL_PROD}/${process.env.DB_NAME}?authMechanism=SCRAM-SHA-1`
   mongoose.connect(mongodbConnectUrl
     , {
       useUnifiedTopology: true,
