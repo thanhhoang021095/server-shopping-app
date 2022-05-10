@@ -9,6 +9,7 @@ import CategoryModel from './Category'
 import SubCategoryModel from './SubCategory'
 import FeatureModel from './Feature'
 import CouponModel from './Coupon'
+import HighlightModel from './Highlight'
 
 const Product = mongoose.model('Product', new Schema(ProductModel, { timestamps: true }), 'products')
 const User = mongoose.model('User', new Schema(UserModel, { timestamps: true }), 'users')
@@ -19,6 +20,7 @@ const  Category = mongoose.model('Category', new Schema(CategoryModel, { timesta
 const  SubCategory = mongoose.model('SubCategory', new Schema(SubCategoryModel, { timestamps: true }), 'subCategory')
 const  Feature = mongoose.model('Feature', new Schema(FeatureModel, { timestamps: true }), 'features')
 const  Coupon = mongoose.model('Coupon', new Schema(CouponModel, { timestamps: true }), 'coupons')
+const  Highlight = mongoose.model('Highlight', new Schema(HighlightModel, { timestamps: true }), 'highlight')
 
 export { 
     Product, 
@@ -30,4 +32,5 @@ export {
     SubCategory, 
     Feature,
     Coupon,
+    Highlight,
 }

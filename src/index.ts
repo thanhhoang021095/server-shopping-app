@@ -4,16 +4,19 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import helmet from 'helmet'
-import ProductRouter from './routes/Product'
-import UserRouter from './routes/User'
-import CartRouter from './routes/Cart'
-import AuthRouter from './routes/Auth'
-import OrderRouter from './routes/Order'
-import BannerRouter from './routes/Banner'
-import CategoryRouter from './routes/Category'
-import SubCategoryRouter from './routes/SubCategory'
-import FeatureRouter from './routes/Feature'
-import SearchRouter from './routes/Search'
+import {
+  ProductRouter,
+  UserRouter,
+  CartRouter,
+  AuthRouter,
+  OrderRouter, 
+  BannerRouter,
+  CategoryRouter,
+  SubCategoryRouter,
+  FeatureRouter,
+  HighlightRouter,
+  SearchRouter,
+} from './routes/index'
 import { connectDatabase } from './common/connectDatabase'
 import { graphqlHTTP } from 'express-graphql'
 import ProductSchema from './Schema/product'
@@ -56,6 +59,7 @@ app.use('/api/category', CategoryRouter)
 app.use('/api/sub-category', SubCategoryRouter)
 app.use('/api/feature', FeatureRouter)
 app.use('/api/search', SearchRouter)
+app.use('/api/highlight', HighlightRouter)
 
 app.use('/api/graphql', graphqlHTTP({ schema: ProductSchema, pretty: true }))
 app.use('/api/user', UserRouter)
