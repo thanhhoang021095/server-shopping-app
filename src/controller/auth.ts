@@ -74,9 +74,9 @@ export default class AuthServices {
     res: Response<ReponseType> | any,
   ): Promise<Response<ReponseType>> {
     try {
-      let userId: number = 0;
+      let userId: number;
       const userList = await User.find({});
-      if (userList.length) userId = userList.length;
+      userId = userList.length + 1
       const {
         account,
         password,

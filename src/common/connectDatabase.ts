@@ -5,7 +5,6 @@ export const connectDatabase = (): void => {
   const mongodbConnectUrl = process.env.NODE_ENV === 'development'
     ? `mongodb://${process.env.DB_URL_DEV}/${process.env.DB_NAME_DEV}`
     : `mongodb://${process.env.DB_URL_PROD}/${process.env.DB_NAME_PROD}?authMechanism=SCRAM-SHA-1`
-  console.log(mongodbConnectUrl);
 
   const handleConnectOptions = () => {
     let result = {

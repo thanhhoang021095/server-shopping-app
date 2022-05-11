@@ -13,7 +13,7 @@ export default class CartServices {
   ): Promise<Response<ReponseType>> {
     try {
       const id: number = parseInt(req.params.id);
-      const payload: any = await Cart.findOne({ id });
+      const payload: any = await CartServices.getCartInfo(id);
       return res.json({ success: true, data: payload });
     } catch (error) {
       return res.status(500);
